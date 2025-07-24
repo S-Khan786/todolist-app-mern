@@ -5,11 +5,19 @@ import taskRoutes from './routes/taskRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+const corsOptions = {
+    origin: "http://localhost:5173",
+    credentials: true,
+}
+
+app.use(cors(corsOptions));
 
 connectDB();
 
